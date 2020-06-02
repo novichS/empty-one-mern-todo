@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/svasyanovych/empty-one#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.2.0",
     "config": "^3.3.1",
     "express": "^4.17.1",
     "express-validator": "^6.5.0",
@@ -27,7 +30,6 @@
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
-    "concurrency": "^0.1.4",
     "nodemon": "^2.0.4"
   }
 }
