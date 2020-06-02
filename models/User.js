@@ -16,4 +16,4 @@ const schema = new Schema({
     }]
 })
 
-mpdule.export = model('User', schema)
+module.export = model('User', schema)
