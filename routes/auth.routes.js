@@ -9,7 +9,7 @@ const router = Router();
 
 // /api/auth/register
 router.post(
-    '/register',
+    "/register",
     // validating email and password on the server side
     [
         check('email', 'incorrect email').isEmail(),
@@ -25,14 +25,14 @@ router.post(
                 return res.status(400).json({
                     errors: errors.array(),
                     message: 'incorrect data (registration)'
-                })
+                });
             }
 
             // here we take email and password from req body
             const { email, password } = req.body;
 
             // looking for email in our db
-            const newUser = await User.findOne({ email })
+            const newUser = await User.findOne({ email });
 
             // if we have this user - our script stop
             if (newUser) {
@@ -48,7 +48,7 @@ router.post(
             res.status(201).json({ message: "user created" });
 
         } catch (e) {
-            res.status(500).json({ message: "something went wrong. please try again" })
+            res.status(500).json({ message: "something went wrong. please try again" });
         }
     })
 
