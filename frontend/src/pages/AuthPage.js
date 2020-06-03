@@ -17,6 +17,11 @@ export const AuthPage = () => {
         clearError()
     }, [error, message, clearError])
 
+    // use it for correct work of inputs (after logout)
+    useEffect(() => {
+        window.M.updateTextFields()
+    }, [])
+
     // handler for input change
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
