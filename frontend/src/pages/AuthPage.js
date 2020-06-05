@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook";
 import { AuthContext } from "../context/AuthContext";
+import { GoogleLogin } from 'react-google-login'
 
 export const AuthPage = () => {
     const auth = useContext(AuthContext)
@@ -11,6 +12,13 @@ export const AuthPage = () => {
         email: '',
         password: ''
     })
+// Google Sign in
+    const responseGoogle = async (response) => {
+        try {
+            const data = await request('/api/auth/login/google', 'POST', { email: response.getBasicProfile().getEmail() })
+            auth.login(data.token, data.userId)
+        } catch (e) { }
+    }
 
     useEffect(() => {
         message(error)
@@ -91,6 +99,13 @@ export const AuthPage = () => {
                         >
                             Sign up
                         </button>
+                        <GoogleLogin
+                            clientId="930418273625-35c9nu1kiteekpfs0llbbj121ofs3mbe.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />
                     </div>
                 </div>
             </div>

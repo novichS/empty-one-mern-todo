@@ -103,5 +103,47 @@ router.post(
         }
 
     })
+// /api/auth/login/google
+    router.post(
+        '/login/google',
+        // checking credentials
+        [
+            check('email', 'Please enter correct email address').isEmail()
+        ],
+        async (req, res) => {
+            try {
+                const errors = validationResult(req);
+                // checking entered data
+                if (!errors.isEmpty()) {
+                    return res.status(400).json({
+                        errors: errors.array(),
+                        message: 'incorrect data (login)'
+                    })
+                }
+
+                const { email } = req.body;
+
+                // looking for user in db
+                const user = await User.findOne({ email });
+
+                // checking: are user exist?
+                if (!user) {
+                    return res.status(400).json({ message: 'User doesn\'t exist' })
+                }
+
+                // added token
+                const token = jwt.sign(
+                    { userId: user.id },
+                    config.get('jwtSecret'),
+                    { expiresIn: '1h' }
+                )
+
+                res.json({ token, userId: user.id })
+
+            } catch (e) {
+                res.status(500).json({ message: "something went wrong. please try again" })
+            }
+
+        })
 
 module.exports = router;

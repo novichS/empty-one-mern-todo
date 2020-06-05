@@ -21,3 +21,10 @@ input.purple-input:focus {
 .card-action button {
     margin-right: 15px;
 }
+
+.rm {
+    background: #f2f2f2;
+    border-radius: 50%;
+    color: #bfbfbf;
+    border: none;
+}
