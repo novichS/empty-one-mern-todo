@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { TodosPage } from './pages/TodosPage';
-import { EditPage } from './pages/EditPage';
 import { AuthPage } from './pages/AuthPage';
 
 export const useRoutes = isAuthenticated => {
@@ -14,9 +13,6 @@ export const useRoutes = isAuthenticated => {
                 </Route>
                 <Route path="/createit" exact>
                     <TodosPage />
-                </Route>
-                <Route path="/edit/:id">
-                    <EditPage />
                 </Route>
                 <Redirect to="/home" />
             </Switch>
