@@ -1,0 +1,30 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+input.purple-input {
+    border-bottom: 1px solid #f3e5f5!important;
+    box-shadow: 0 1px 0 0 #f3e5f5!important;
+}
+
+input.purple-input + label {
+    color: #f3e5f5!important;
+}
+
+input.purple-input:focus + label {
+    color: #311b92!important;
+}
+
+
+input.purple-input:focus {
+    border-bottom: 1px solid #311b92!important;
+    box-shadow: 0 1px 0 0 #311b92!important;
+}
+.card-action button {
+    margin-right: 15px;
+}
+
+.rm {
+    background: #f2f2f2;
+    border-radius: 50%;
+    color: #bfbfbf;
+    border: none;
+}

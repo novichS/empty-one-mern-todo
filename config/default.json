@@ -1,0 +1,5 @@
+{
+    "port": 4000,
+    "jwtSecret": "secret jwt todo",
+    "mongoUri": "mongodb+srv://svasi:1234qwerty@cluster0-bilvf.gcp.mongodb.net/app?retryWrites=true&w=majority"
+}
