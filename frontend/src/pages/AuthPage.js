@@ -17,7 +17,7 @@ export const AuthPage = () => {
         clearError()
     }, [error, message, clearError])
 
-    // use it for correct work of inputs (after logout)
+   // use it for correct work of inputs (after logout)
     useEffect(() => {
         window.M.updateTextFields()
     }, [])
@@ -30,6 +30,7 @@ export const AuthPage = () => {
     const registerHandler = async () => {
         try {
             const data = await request('/api/auth/register', 'POST', { ...form })
+            console.log('data', data)
             message(data.message)
         } catch (e) {
             // we have already caught an error, so we can leave catch block empty

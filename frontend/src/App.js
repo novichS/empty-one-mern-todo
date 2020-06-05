@@ -7,7 +7,7 @@ import { AuthContext } from "./context/AuthContext";
 import { NavBar } from './components/NavBar';
 
 function App() {
-  const { token, login, logout, userId, ready } = useAuth();
+  const { token, login, logout, userId } = useAuth();
   const isAuthenticated = !!token
   const routes = useRoutes(isAuthenticated)
 

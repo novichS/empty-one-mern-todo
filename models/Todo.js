@@ -9,10 +9,10 @@ const schema = new Schema({
         type: Boolean,
         required: true
     },
-    owner: [{
+    owner: {
         type: Types.ObjectId,
         ref: 'User'
-    }]
+    }
 })
 
 module.exports = model('Todo', schema)
