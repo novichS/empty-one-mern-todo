@@ -100,7 +100,7 @@ export const AuthPage = () => {
                             Sign up
                         </button>
                         <GoogleLogin
-                            clientId="930418273625-35c9nu1kiteekpfs0llbbj121ofs3mbe.apps.googleusercontent.com"
+                            clientId="yourClientID"
                             buttonText="Login"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
